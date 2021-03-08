@@ -1,12 +1,18 @@
-import React from 'react';
-import { Button } from '@material-ui/core';
+import React from "react";
+import Router from "./Router";
+import axios from "axios";
+import { AuthContextProvider } from "./context/AuthContext";
+import { UserContextProvider } from "./context/UserContext";
+
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello, world!</h1>
-      <Button color="primary">Hello World</Button>;
-    </div>
+    <AuthContextProvider>
+      <UserContextProvider>
+        <Router />
+      </UserContextProvider>
+    </AuthContextProvider>
   );
 }
 
