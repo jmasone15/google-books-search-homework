@@ -1,6 +1,9 @@
 {
     "name": "google-books-search",
     "version": "1.0.0",
+    "engines": {
+        "node": "14.15.1"
+    },
     "description": "Google Books Search Homework",
     "main": "index.js",
     "scripts": {
