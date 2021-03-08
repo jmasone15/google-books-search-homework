@@ -19,14 +19,13 @@ app.use(cors({
 }));
 
 // DB connection
-mongoose.connect(process.env.MDB_CONNECT,
+mongoose.connect(
+    process.env.MONGODB_URI || 'mongodb://localhost/googleBooksUsers',
     {
         useNewUrlParser: true,
-        useUnifiedTopology: true
-    },
-    (err) => {
-        if (err) return console.error(err);
-        console.log("Connected to database through MongoDB");
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false
     }
 );
 
