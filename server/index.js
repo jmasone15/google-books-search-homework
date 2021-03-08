@@ -32,6 +32,9 @@ mongoose.connect(
 // Routes
 app.use("/user", require("./routers/userRoutes"));
 app.use("/api", require("./routers/bookRoutes"));
+app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
